@@ -1,0 +1,17 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider/IDEA
+.idea/
+
+# Logs
+*.log
+
+# Optional: dev settings
+**/appsettings.Development.json

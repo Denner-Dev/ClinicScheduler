@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agendamento - Clínica</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <div>
+          <h1>Agendamento - Clínica</h1>
+          <p>Escolha a data, veja horários disponíveis e confirme seu agendamento.</p>
+        </div>
+      </div>
+      <a class="link" href="/swagger" target="_blank" rel="noreferrer">Swagger</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="layout">
+      <section class="card">
+        <div class="card-header">
+          <h2>1) Escolha a data</h2>
+          <span class="badge">08:00–18:00 • 1h</span>
+        </div>
+
+        <div class="row">
+          <label class="field">
+            <span>Data</span>
+            <input id="data" type="date" min="2026-01-01" max="2035-12-31" />
+          </label>
+
+          <button id="btnBuscar" class="btn primary" type="button">Buscar horários</button>
+        </div>
+
+        <div id="status" class="alert" role="status" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>2) Horários disponíveis</h2>
+          <span id="diaInfo" class="muted"></span>
+        </div>
+
+        <div id="horarios" class="slots"></div>
+        <div id="slotsVazio" class="empty" hidden>
+          Selecione uma data e clique em <strong>Buscar horários</strong>.
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>3) Confirmar agendamento</h2>
+        </div>
+
+        <div class="grid2">
+          <label class="field">
+            <span>Nome do paciente</span>
+            <input id="nome" type="text" placeholder="Ex.: Maria Silva" />
+          </label>
+
+          <label class="field">
+            <span>E-mail (opcional)</span>
+            <input id="email" type="email" placeholder="maria@email.com" />
+          </label>
+        </div>
+
+        <div class="row">
+          <label class="field grow">
+            <span>Horário selecionado</span>
+            <input id="selecionado" type="text" placeholder="Selecione um horário ao lado" readonly />
+          </label>
+
+          <button id="btnAgendar" class="btn success" type="button" disabled>Agendar</button>
+        </div>
+
+        <div id="confirmacao" class="alert" role="status" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Agendamentos salvos</h2>
+          <button id="btnAtualizar" class="btn" type="button">Atualizar</button>
+        </div>
+
+        <ul id="lista" class="list"></ul>
+        <div id="listaVazia" class="empty" hidden>Nenhum agendamento ainda.</div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <span class="muted">Datas válidas: 01/01/2026 até 31/12/2035.</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
