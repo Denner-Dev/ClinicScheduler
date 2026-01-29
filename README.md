@@ -60,7 +60,7 @@ ClinicScheduler/
 
 ### Configuração
 
-Edite `Backend/appsettings.Development.json`:
+Edite `Backend/appsettings.json`:
 
 ```json
 {
